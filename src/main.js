@@ -1,8 +1,20 @@
 import Vue from 'vue'
 import App from './App.vue'
+import router from './router'
+import firebase from 'firebase'
+import './components/firebaseInit'
 
 Vue.config.productionTip = false
 
+firebase.auth().onAuthStateChanged(user =>  {
+  if (user) {
+    console.log('User is signed in.', user)
+  } else {
+    console.log('No user is signed in.')
+  }
+});
+
 new Vue({
-  render: h => h(App),
+  router,
+  render: h => h(App)
 }).$mount('#app')
