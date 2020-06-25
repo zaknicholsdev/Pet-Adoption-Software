@@ -146,8 +146,7 @@ export default {
           isDeclawed: this.isDeclawed,
           adoptionFee: this.adoptionFee
         })
-        .then(docRef => {
-          console.log("Document written with ID: ", docRef.id)
+        .then(() => {
           this.$router.push("/cats");
         }) 
         .catch(error => console.log(error));

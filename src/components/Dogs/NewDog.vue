@@ -139,8 +139,8 @@ export default {
           adoptionFee: this.adoptionFee,
           description: this.description
         })
-        .then(docRef => {
-          console.log("Document written with ID: ", docRef.id)
+        .then(() => {
+          // console.log("Document written with ID: ", docRef.id)
           this.$router.push("/dogs");
         })
         .catch(error => console.log(error));

@@ -1,5 +1,6 @@
 <template>
   <div class="login container">
+    <SuccessModal v-model="showModal"></SuccessModal>
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -34,21 +35,28 @@
 
 <script>
 import firebase from '../firebaseInit'
+import SuccessModal from './SuccessModal'
 export default {
+  components: {
+    SuccessModal
+  },
   name: "login",
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      showModal: false
     };
   },
   methods: {
     login(event) {
         firebase.auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(user => {
-          alert(`You are now signed in ${user.user.email}`);
-          this.$router.push('/');
+        .then(() => {
+          this.showModal = !this.showModal
+          setTimeout(() => {
+            this.$router.push('/')
+          }, 1500)
         }, err => {
             alert(err.message);
         }

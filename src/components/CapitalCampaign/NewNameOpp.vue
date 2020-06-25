@@ -50,8 +50,7 @@ export default {
           price: this.price,
           isPaid: this.isPaid
         })
-        .then(docRef => {
-          console.log("Document written with ID: ", docRef.id)
+        .then(() => {
           this.$router.push("/capital-campaign");
         })
         .catch(error => console.log(error));

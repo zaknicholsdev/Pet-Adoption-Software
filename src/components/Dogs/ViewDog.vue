@@ -1,22 +1,45 @@
 <template>
   <div class="container">
+    <modal v-model="modalOpen" v-on:deleteItem="deleteDog"></modal>
     <div class="card border mt-3 shadow mb-5 bg-white rounded col-xs-12 max">
       <div class="caption">
-        <img v-bind:src="imageUrl" class="img-fluid card-img-top">
-        <br>
+        <img v-bind:src="imageUrl" class="img-fluid card-img-top" />
+        <br />
         <ul class="pl-2 pr-2 pt-2 pb-0 m-2">
-          <li><strong>Name:</strong> {{name}}</li>
-          <li><strong>Breed:</strong> {{breed}}</li>
-          <li><strong>Age:</strong> {{age}}</li>
-          <li><strong>Neutered/Spayed:</strong> {{isNeuteredOrSpayed}}</li>
-          <li><strong>Adoption Fee:</strong> {{adoptionFee}}</li>
-          <p class="of"><strong>Description:</strong> {{description}}</p>
+          <li>
+            <strong>Name:</strong>
+            {{name}}
+          </li>
+          <li>
+            <strong>Breed:</strong>
+            {{breed}}
+          </li>
+          <li>
+            <strong>Age:</strong>
+            {{age}}
+          </li>
+          <li>
+            <strong>Neutered/Spayed:</strong>
+            {{isNeuteredOrSpayed}}
+          </li>
+          <li>
+            <strong>Adoption Fee:</strong>
+            {{adoptionFee}}
+          </li>
+          <p class="of">
+            <strong>Description:</strong>
+            {{description}}
+          </p>
         </ul>
       </div>
       <div class="mb-3 mr-3 ml-3">
-      <router-link to="/dogs" class="btn btn-secondary m-1">Back</router-link>
-      <button v-if="isLoggedIn" @click="deleteDog" class="btn btn-danger m-1">Delete</button>
-      <router-link class="btn btn-warning m-1" v-if="isLoggedIn" v-bind:to="{name: 'edit-dog', params: {'dog-id': dogId}}">Edit</router-link>
+        <router-link to="/dogs" class="btn btn-secondary m-1">Back</router-link>
+        <button v-if="isLoggedIn" @click="showModal" class="btn btn-danger m-1">Delete</button>
+        <router-link
+          class="btn btn-warning m-1"
+          v-if="isLoggedIn"
+          v-bind:to="{name: 'edit-dog', params: {'dog-id': dogId}}"
+        >Edit</router-link>
       </div>
     </div>
   </div>
@@ -24,7 +47,11 @@
 
 <script>
 import firebase from "../firebaseInit";
+import Modal from "../Modal";
 export default {
+  components: {
+    Modal
+  },
   name: "view-dog",
   data() {
     return {
@@ -37,11 +64,14 @@ export default {
       isLoggedIn: false,
       currentUser: false,
       isNeuteredOrSpayed: null,
-      adoptionFee: null
+      adoptionFee: null,
+      modalOpen: false
     };
   },
   beforeRouteEnter(to, from, next) {
-    firebase.firestore().collection("dogs")
+    firebase
+      .firestore()
+      .collection("dogs")
       .where("dogId", "==", to.params.dogId)
       .get()
       .then(querySnapshot => {
@@ -60,7 +90,7 @@ export default {
       });
   },
   watch: {
-    '$route': "fetchData"
+    $route: "fetchData"
   },
   created() {
     if (firebase.auth().currentUser) {
@@ -70,7 +100,9 @@ export default {
   },
   methods: {
     fetchData() {
-      firebase.firestore().collection("dogs")
+      firebase
+        .firestore()
+        .collection("dogs")
         .where("dogId", "==", this.$route.params.dogId)
         .get()
         .then(querySnapshot => {
@@ -86,18 +118,21 @@ export default {
           });
         });
     },
+    showModal() {
+      this.modalOpen = !this.modalOpen;
+    },
     deleteDog() {
-      if (confirm("Are you sure?")) {
-        firebase.firestore().collection("dogs")
-          .where("dogId", "==", this.$route.params.dogId)
-          .get()
-          .then(querySnapshot => {
-            querySnapshot.forEach(doc => {
-              doc.ref.delete();
-              this.$router.push("/dogs");
-            });
+      firebase
+        .firestore()
+        .collection("dogs")
+        .where("dogId", "==", this.$route.params.dogId)
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            doc.ref.delete();
+            this.$router.push("/dogs");
           });
-      }
+        });
     }
   }
 };

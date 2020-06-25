@@ -15,7 +15,7 @@
       <h5 class="mr-2 mb-0 ml-2"><strong>DONATE OR VIEW OUR CAPITAL CAMPAIGN FUNDRAISER.</strong></h5>
       <br />
       <div class="mb-2">
-        <router-link to="/donate" class="btn px-5 other-btn-color text-white py-3 my-1 round s">Donate</router-link>
+        <router-link to="/donate" class="btn px-5 other-btn-color text-white py-3 my-1 mr-2 round s">Donate</router-link>
         <router-link
           class="btn px-2 py-3 my-1 round btn-secondary text-white s"
           to="/capital-campaign"

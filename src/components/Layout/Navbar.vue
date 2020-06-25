@@ -6,7 +6,7 @@
           <span style="float: left;">
             <img src="../../assets/logo.png" class="img-fluid" height="75" width="75" />
           </span>
-          <div class="this mt-2">Greater Hillsdale</div>
+          <div class="this mt-2">Your Local</div>
           <div class="this">Humane Society</div>
         </router-link>
       </div>

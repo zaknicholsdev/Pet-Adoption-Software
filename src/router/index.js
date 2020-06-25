@@ -26,7 +26,6 @@ const scrollBehavior = function() {
 }
 
 const router = new Router({
-  mode: 'history',
   scrollBehavior,
   routes: [
     {
