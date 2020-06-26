@@ -128,7 +128,6 @@ export default {
           storageRef.snapshot.ref.getDownloadURL().then(url => {
             this.picture = url;
             this.imageUrl = url;
-            console.log(url);
           });
         }
       );

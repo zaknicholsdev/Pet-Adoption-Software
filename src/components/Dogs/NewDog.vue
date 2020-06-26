@@ -140,7 +140,6 @@ export default {
           description: this.description
         })
         .then(() => {
-          // console.log("Document written with ID: ", docRef.id)
           this.$router.push("/dogs");
         })
         .catch(error => console.log(error));

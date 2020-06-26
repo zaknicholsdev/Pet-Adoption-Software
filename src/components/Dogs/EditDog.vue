@@ -88,9 +88,6 @@ export default {
         });
       });
   },
-  watch: {
-    $route: "fetchData"
-  },
   methods: {
     fetchData() {
       firebase.firestore().collection("dogs")

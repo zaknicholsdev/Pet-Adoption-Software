@@ -15,7 +15,7 @@
         <small
           id="emailHelp"
           class="form-text text-muted"
-        >Enter your admin credentials</small>
+        >Enter your admin credentials.</small>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>

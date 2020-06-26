@@ -13,6 +13,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:zaknicholsdev/Pet-Adoption-Software.git master:gh-pages
+git push -f git@github.com:zaknicholsdev/Adopty.git master:gh-pages
 
 cd -

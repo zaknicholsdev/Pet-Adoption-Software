@@ -1,6 +1,58 @@
 <template>
   <div class="container">
     <modal v-model="modalOpen" v-on:deleteItem="deleteCat"></modal>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <img v-bind:src="imageUrl" class="img-fluid max px-0" />
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-8">
+        <ul class="px-3">
+          <li>
+            <strong>Name:</strong>
+            {{name}}
+          </li>
+          <li>
+            <strong>Breed:</strong>
+            {{breed}}
+          </li>
+          <li>
+            <strong>Age:</strong>
+            {{age}}
+          </li>
+          <li>
+            <strong>Spayed/Neutered:</strong>
+            {{isNeuteredOrSpayed}}
+          </li>
+          <li>
+            <strong>Declawed:</strong>
+            {{isDeclawed}}
+          </li>
+          <li>
+            <strong>Adoption Fee:</strong>
+            ${{adoptionFee}}
+          </li>
+          <p class="of">
+            <strong>Description:</strong>
+            {{description}}
+          </p>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="text-center m-3">
+          <router-link to="/cats" class="btn btn-secondary m-1">Back</router-link>
+          <button v-if="isLoggedIn" @click="showModal" class="btn btn-danger m-1">Delete</button>
+          <router-link
+            class="btn btn-warning m-1"
+            v-if="isLoggedIn"
+            v-bind:to="{name: 'edit-cat', params: {'cat-id': catId}}"
+          >Edit</router-link>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <modal v-model="modalOpen" v-on:deleteItem="deleteCat"></modal>
     <div class="card border mt-3 mb-5 shadow bg-white rounded col-xs-12 max">
       <div class="caption">
         <img v-bind:src="imageUrl" class="img-fluid card-img-top" />
@@ -45,8 +97,7 @@
           v-bind:to="{name: 'edit-cat', params: {'cat-id': catId}}"
         >Edit</router-link>
       </div>
-    </div>
-  </div>
+  </div>-->
 </template>
 
 <script>
@@ -95,9 +146,6 @@ export default {
         });
       });
   },
-  watch: {
-    $route: "fetchData"
-  },
   created() {
     if (firebase.auth().currentUser) {
       this.isLoggedIn = true;
@@ -129,19 +177,19 @@ export default {
       this.modalOpen = !this.modalOpen;
     },
     deleteCat() {
-        firebase
-          .firestore()
-          .collection("cats")
-          .where("catId", "==", this.$route.params.catId)
-          .get()
-          .then(querySnapshot => {
-            querySnapshot.forEach(doc => {
-              doc.ref.delete();
-              this.$router.push("/cats");
-            });
+      firebase
+        .firestore()
+        .collection("cats")
+        .where("catId", "==", this.$route.params.catId)
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            doc.ref.delete();
+            this.$router.push("/cats");
           });
-      }
+        });
     }
+  }
 };
 </script>
 
@@ -159,19 +207,12 @@ li {
 }
 
 .max {
-  max-width: 400px;
+  max-height: 400px;
   margin: 0 auto;
 }
-.card-img-top {
-  width: 100%;
-  object-fit: cover;
-}
 
-.rounded {
-  border-radius: 30px !important;
-}
-.card-img-top {
-  border-top-left-radius: 30px !important;
-  border-top-right-radius: 30px !important;
+.padding-0{
+    padding-right:0;
+    padding-left:0;
 }
 </style>
