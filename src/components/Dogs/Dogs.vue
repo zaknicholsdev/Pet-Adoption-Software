@@ -20,7 +20,7 @@
         <div v-for="dog in dogs" v-bind:key="dog.id" class="col-xs-12 col-md-4 mb-5">
           <div class="card border mt-3 shadow bg-white rounded">
             <div class="caption">
-              <img v-bind:src="dog.imageUrl" class="img-fluid card-img-top" />
+              <img v-bind:style="{ backgroundImage: 'url(' + dog.imageUrl + ')' }" class="card-img-top" />
               <br />
               <ul class="p-2 text-center">
                 <li>
@@ -49,7 +49,8 @@ export default {
     return {
       dogs: [],
       isLoggedIn: false,
-      loading: true
+      loading: true,
+      imageUrl: ''
     };
   },
   created() {
@@ -91,12 +92,6 @@ ul {
   }
 }
 
-.card-img-top {
-  width: 500px;
-  height: 300px;
-  object-fit: cover;
-}
-
 .other-btn-color {
   background-color: #054864;
   color: white;
@@ -108,5 +103,11 @@ ul {
 .card-img-top {
   border-top-left-radius: 30px !important;
   border-top-right-radius: 30px !important;
+}
+
+img {
+  width: 100%;
+  padding-bottom: 100%;
+  background: no-repeat center/cover;
 }
 </style>

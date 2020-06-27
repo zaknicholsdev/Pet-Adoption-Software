@@ -3,7 +3,7 @@
     <modal v-model="modalOpen" v-on:deleteItem="deleteDog"></modal>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <img v-bind:src="imageUrl" class="img-fluid max px-0" />
+        <img v-bind:style="{ backgroundImage: 'url(' + imageUrl + ')' }" />
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8">
         <ul class="px-3">
@@ -44,7 +44,11 @@
             v-if="isLoggedIn"
             v-bind:to="{name: 'edit-dog', params: {'dog-id': dogId}}"
           >Edit</router-link>
-          <router-link v-if="isLoggedIn" to="/Dashboard" class="btn btn-secondary m-1 other-btn-color">Dashboard</router-link>
+          <router-link
+            v-if="isLoggedIn"
+            to="/Dashboard"
+            class="btn btn-secondary m-1 other-btn-color"
+          >Dashboard</router-link>
         </div>
       </div>
     </div>
@@ -158,11 +162,6 @@ li {
   word-wrap: break-word;
 }
 
-.card-img-top {
-  width: 100%;
-  object-fit: cover;
-}
-
 .rounded {
   border-radius: 30px !important;
 }
@@ -175,5 +174,11 @@ li {
 .other-btn-color {
   background-color: #054864;
   color: white;
+}
+
+img {
+  width: 100%;
+  padding-bottom: 100%;
+  background: no-repeat center/cover;
 }
 </style>

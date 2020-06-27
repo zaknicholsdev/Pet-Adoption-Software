@@ -3,18 +3,10 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header justify-content-center">
-          <h5 class="modal-title">Welcome back</h5>
+          <h5 class="modal-title">Welcome back!</h5>
         </div>
         <div class="modal-body text-center">
-          <p>Great to see you.</p>
-        </div>
-        <div class="modal-footer">
-          <button
-            @click.prevent="close"
-            type="button"
-            class="btn btn-secondary"
-            data-dismiss="modal"
-          >Close</button>
+          <p>You will be redirected to your dashboard.</p>
         </div>
       </div>
     </div>

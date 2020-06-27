@@ -12,53 +12,61 @@
 
     <div else class="container">
       <h2 class="text-center mt-1" v-show="!loading" id="cats">Pet Inventory</h2>
-      <div class="row">
-        <div v-for="cat in cats" v-bind:key="cat.id" class="col text-center">
+      <div class="row text-center">
+        <div class="col-6">
           <router-link to="/new-cat" class="pet-link" v-if="isLoggedIn">
             Add Cat
             <i class="fas fa-plus ml-1"></i>
           </router-link>
-          <ul class="mt-3">
-            Cats
-            <li>
-              <strong>
-                <div class="p-1">
-                  {{cat.name}} -
-                  <router-link
-                    class="ml-1 pet-link"
-                    v-bind:to="{name: 'view-cat', params: {catId: cat.catId}}"
-                  >
-                    View
-                    <i class="fas fa-search ml-1"></i>
-                  </router-link>
-                </div>
-              </strong>
-            </li>
-          </ul>
+          <h4 class="mt-3">Cats</h4>
+
+          <div v-for="cat in cats" v-bind:key="cat.id" class="text-center">
+            <ul>
+              <li>
+                <strong>
+                  <div class="p-1">
+                    {{cat.name}} -
+                    <router-link
+                      class="ml-1 pet-link"
+                      v-bind:to="{name: 'view-cat', params: {catId: cat.catId}}"
+                    >
+                      View
+                      <i class="fas fa-search ml-1"></i>
+                    </router-link>
+                  </div>
+                </strong>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div v-for="dog in dogs" v-bind:key="dog.id" class="col text-center">
-          <router-link to="/new-dog" class="pet-link" v-if="isLoggedIn">
-            Add Dog
-            <i class="fas fa-plus ml-1"></i>
-          </router-link>
-          <ul class="mt-3">
-            Dogs
-            <li>
-              <strong>
-                <div class="p-1">
-                  {{dog.name}} -
-                  <router-link
-                    class="ml-1 pet-link"
-                    v-bind:to="{name: 'view-dog', params: {dogId: dog.dogId}}"
-                  >
-                    View
-                    <i class="fas fa-search ml-1"></i>
-                  </router-link>
-                </div>
-              </strong>
-            </li>
-          </ul>
+        <div class="col-6">
+          <div class="my-center">
+            <router-link to="/new-dog" class="pet-link" v-if="isLoggedIn">
+              Add Dog
+              <i class="fas fa-plus ml-1"></i>
+            </router-link>
+            <h4 class="mt-3">Dogs</h4>
+          </div>
+
+          <div v-for="dog in dogs" v-bind:key="dog.id" class="text-center">
+            <ul>
+              <li>
+                <strong>
+                  <div class="p-1">
+                    {{dog.name}} -
+                    <router-link
+                      class="ml-1 pet-link"
+                      v-bind:to="{name: 'view-dog', params: {dogId: dog.dogId}}"
+                    >
+                      View
+                      <i class="fas fa-search ml-1"></i>
+                    </router-link>
+                  </div>
+                </strong>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -185,6 +193,10 @@ li {
 
 .pet-link {
   text-decoration: none;
-  color: #054864;;
+  color: #054864;
+}
+
+.my-center {
+  justify-content: center;
 }
 </style>

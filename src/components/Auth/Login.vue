@@ -55,7 +55,7 @@ export default {
         .then(() => {
           this.showModal = !this.showModal
           setTimeout(() => {
-            this.$router.push('/')
+            this.$router.push('/dashboard')
           }, 1500)
         }, err => {
             alert(err.message);

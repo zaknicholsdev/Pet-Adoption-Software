@@ -20,12 +20,7 @@
         <div v-for="cat in cats" v-bind:key="cat.id" class="col-xs-12 col-md-4 mb-5">
           <div class="card border mt-3 shadow bg-white rounded">
             <div class="caption">
-              <img
-                v-bind:src="cat.imageUrl"
-                class="img-fluid card-img-top"
-                width="500"
-                height="500"
-              />
+              <img v-bind:style="{ backgroundImage: 'url(' + cat.imageUrl + ')' }" class="card-img-top" />
               <br />
               <ul class="p-2 text-center">
                 <li>
@@ -62,7 +57,9 @@ export default {
       this.isLoggedIn = true;
     }
 
-    firebase.firestore().collection("cats")
+    firebase
+      .firestore()
+      .collection("cats")
       .orderBy("name")
       .get()
       .then(querySnapshot => {
@@ -95,11 +92,6 @@ ul {
     max-width: 600px;
   }
 }
-.card-img-top {
-  width: 500px;
-  height: 300px;
-  object-fit: cover;
-}
 
 .other-btn-color {
   background-color: #054864;
@@ -111,5 +103,11 @@ ul {
 .card-img-top {
   border-top-left-radius: 30px !important;
   border-top-right-radius: 30px !important;
+}
+
+img {
+  width: 100%;
+  padding-bottom: 100%;
+  background: no-repeat center/cover;
 }
 </style>
