@@ -1,15 +1,12 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-xl navbar-light bg-light">
-      <div style="margin-top: 10px;">
         <router-link to="/" class="navbar-brand color">
-          <span style="float: left;">
-            <img src="../../assets/logo.png" class="img-fluid" height="75" width="75" />
+          <span>
+            <img src="../../assets/logo.png" class="img-fluid" height="50" width="50" />
+            <span>Adopty</span>
           </span>
-          <div class="this mt-2">Your Local</div>
-          <div class="this">Humane Society</div>
         </router-link>
-      </div>
 
       <button
         class="navbar-toggler"
@@ -129,7 +126,24 @@ export default {
 .pointer {
   cursor: pointer;
 }
-.this {
-  font-size: 17.5px;
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  /*whatever width you want*/
 }
 </style>

@@ -7,23 +7,23 @@
             <h2 class="mt-0">Come Visit Us!</h2>
             <hr class="divider my-4">
             <p class="mb-5">
-              If you'd like to adopt please come visit us at:
-              <br>3881 S. Tripp Rd. Osseo,
-              Michigan
+              If you'd like to adopt please come visit us at: 
+              <br>
+              1234 Example Rd. Somewhere Some Place.
             </p>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 ml-auto text-center">
             <i class="fas fa-phone fa-3x mb-3"></i>
-            <div>1-517-523-2308</div>
+            <div>555-123-4567</div>
           </div>
           <div class="col-lg-4 mr-auto text-center">
             <i class="fas fa-envelope fa-3x mb-3"></i>
             <a
               class="d-block" style="color: #212529;"
-              href="mailto:director@hillsdalehumanesociety.org"
-            >director@hillsdalehumanesociety.org</a>
+              href="mailto:example@adopty.org"
+            >example@adopty.org</a>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
       <div class="container">
         <div
           class="small text-center text-muted"
-        >Copyright &copy; 2019 - Greater Hillsdale Humane Society</div>
+        >Copyright &copy; 2020 - Adopty</div>
       </div>
     </footer>
   </div>

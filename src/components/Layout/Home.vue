@@ -31,7 +31,7 @@
             <h2 class="mt-0">You Make a Difference!</h2>
             <hr class="divider light my-4" />
             <p class="mb-4">
-              For decades the Greater Hillsdale Humane Society has been saving animals
+              For decades the Humane Society has been saving animals
               and finding them safe homes. We are a non-profit organization who receive our funds through
               donations, fundraising and adoptions. Your donations, volunteer work, and on-going support is everything.
             </p>

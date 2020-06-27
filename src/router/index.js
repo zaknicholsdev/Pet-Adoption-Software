@@ -21,8 +21,8 @@ import Restricted from '@/components/Auth/Restricted'
 
 Vue.use(Router)
 
-const scrollBehavior = function() {
-    return { x: 0, y: 0 }
+const scrollBehavior = function () {
+  return { x: 0, y: 0 }
 }
 
 const router = new Router({
@@ -31,7 +31,10 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        title: 'Adopty | Home'
+      }
     },
     {
       path: '/contact',
@@ -41,19 +44,26 @@ const router = new Router({
     {
       path: '/dogs',
       name: 'dogs',
-      component: Dogs
+      component: Dogs,
+      meta: {
+        title: 'Adopty | Dogs'
+      }
     },
     {
       path: '/cats',
       name: 'cats',
-      component: Cats
+      component: Cats,
+      meta: {
+        title: 'Adopty | Cats'
+      }
     },
     {
       path: '/login',
       name: 'login',
       component: Login,
       meta: {
-        requiresGuest: true
+        requiresGuest: true,
+        title: 'Adopty | Login'
       }
     },
     {
@@ -61,7 +71,8 @@ const router = new Router({
       name: 'new-dog',
       component: NewDog,
       meta: {
-        requiresAuth: true
+        requiresAuth: true,
+        title: 'Adopty | Add Dog'
       }
     },
     {
@@ -69,20 +80,25 @@ const router = new Router({
       name: 'edit-dog',
       component: EditDog,
       meta: {
-        requiresAuth: true
+        requiresAuth: true,
+        title: 'Adopty | Edit Dog'
       }
     },
     {
       path: '/dog/:dogId',
       name: 'view-dog',
-      component: ViewDog
+      component: ViewDog,
+      meta: {
+        title: 'Adopty | View Dog'
+      }
     },
     {
       path: '/new-cat',
       name: 'new-cat',
       component: NewCat,
       meta: {
-        requiresAuth: true
+        requiresAuth: true,
+        title: 'Adopty | Add Cat'
       }
     },
     {
@@ -90,30 +106,41 @@ const router = new Router({
       name: 'edit-cat',
       component: EditCat,
       meta: {
-        requiresAuth: true
+        requiresAuth: true,
+        title: 'Adopty | Edit Cat'
       }
     },
     {
       path: '/cat/:catId',
       name: 'view-cat',
-      component: ViewCat
+      component: ViewCat,
+      meta: {
+        title: 'Adopty | View Cat'
+      }
     },
     {
       path: '/donate',
       name: 'donate',
-      component: Donate
+      component: Donate,
+      meta: {
+        title: 'Adopty | Donate'
+      }
     },
     {
       path: '/capital-campaign',
       name: 'capital-campaign',
-      component: CapitalCampaign
+      component: CapitalCampaign,
+      meta: {
+        title: 'Adopty | Capital Campaign'
+      }
     },
     {
       path: '/new-name-opp',
       name: 'new-name-opp',
       component: NewNameOpp,
       meta: {
-        requiresAuth: true
+        requiresAuth: true,
+        title: 'Adopty | New Naming Oppurtunity'
       }
     },
     {
@@ -121,7 +148,8 @@ const router = new Router({
       name: 'edit-name-opp',
       component: EditNameOpp,
       meta: {
-        requiresAuth: true
+        requiresAuth: true,
+        title: 'Adopty | Edit Naming Oppurtunity'
       }
     },
     {
@@ -129,19 +157,25 @@ const router = new Router({
       name: 'view-name-opp',
       component: ViewNameOpp,
       meta: {
-        requiresAuth: true
+        requiresAuth: true,
+        title: 'Adopty | View Naming Oppurtunity'
       }
     },
     {
-      path:'/restricted',
-      name:'restricted',
-      component: Restricted
+      path: '/restricted',
+      name: 'restricted',
+      component: Restricted,
+      meta: {
+        title: 'Adopty | Restricted'
+      }
     }
   ]
 })
 
 // Nav Guard
 router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
   // Check for requiresAuth guard
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // Check if NO logged user
