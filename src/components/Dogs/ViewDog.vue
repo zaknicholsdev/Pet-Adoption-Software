@@ -44,54 +44,11 @@
             v-if="isLoggedIn"
             v-bind:to="{name: 'edit-dog', params: {'dog-id': dogId}}"
           >Edit</router-link>
+          <router-link v-if="isLoggedIn" to="/Dashboard" class="btn btn-secondary m-1 other-btn-color">Dashboard</router-link>
         </div>
       </div>
     </div>
   </div>
-  <!-- <div class="container">
-    <modal v-model="modalOpen" v-on:deleteItem="deleteDog"></modal>
-    <div class="card border mt-3 shadow mb-5 bg-white rounded col-xs-12 max">
-      <div class="caption">
-        <img v-bind:src="imageUrl" class="img-fluid card-img-top" />
-        <br />
-        <ul class="pl-2 pr-2 pt-2 pb-0 m-2">
-          <li>
-            <strong>Name:</strong>
-            {{name}}
-          </li>
-          <li>
-            <strong>Breed:</strong>
-            {{breed}}
-          </li>
-          <li>
-            <strong>Age:</strong>
-            {{age}}
-          </li>
-          <li>
-            <strong>Neutered/Spayed:</strong>
-            {{isNeuteredOrSpayed}}
-          </li>
-          <li>
-            <strong>Adoption Fee:</strong>
-            {{adoptionFee}}
-          </li>
-          <p class="of">
-            <strong>Description:</strong>
-            {{description}}
-          </p>
-        </ul>
-      </div>
-      <div class="mb-3 mr-3 ml-3">
-        <router-link to="/dogs" class="btn btn-secondary m-1">Back</router-link>
-        <button v-if="isLoggedIn" @click="showModal" class="btn btn-danger m-1">Delete</button>
-        <router-link
-          class="btn btn-warning m-1"
-          v-if="isLoggedIn"
-          v-bind:to="{name: 'edit-dog', params: {'dog-id': dogId}}"
-        >Edit</router-link>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -141,7 +98,6 @@ export default {
   created() {
     if (firebase.auth().currentUser) {
       this.isLoggedIn = true;
-      this.currentUser = firebase.auth().currentUser.email;
     }
   },
   methods: {
@@ -201,6 +157,7 @@ li {
 .of {
   word-wrap: break-word;
 }
+
 .card-img-top {
   width: 100%;
   object-fit: cover;
@@ -209,8 +166,14 @@ li {
 .rounded {
   border-radius: 30px !important;
 }
+
 .card-img-top {
   border-top-left-radius: 30px !important;
   border-top-right-radius: 30px !important;
+}
+
+.other-btn-color {
+  background-color: #054864;
+  color: white;
 }
 </style>

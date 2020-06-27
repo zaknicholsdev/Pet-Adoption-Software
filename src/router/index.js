@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import firebase from 'firebase'
-import EditCat from '../components/Cats/EditCat'
-import EditDog from '../components/Dogs/EditDog'
+import EditCat from '@/components/Cats/EditCat'
+import EditDog from '@/components/Dogs/EditDog'
 import ViewCat from '@/components/Cats/ViewCat'
 import ViewDog from '@/components/Dogs/ViewDog'
-import NewCat from '../components/Cats/NewCat'
+import NewCat from '@/components/Cats/NewCat'
 import NewDog from '@/components/Dogs/NewDog'
 import Login from '@/components/Auth/Login'
 import Home from '@/components/Layout/Home'
-import Donate from '@/components/Misc/Donate'
+import Donate from '@/components/Donations/Donate'
 import CapitalCampaign from '@/components/CapitalCampaign/CapitalCampaign'
 import NewNameOpp from '@/components/CapitalCampaign/NewNameOpp'
 import EditNameOpp from '@/components/CapitalCampaign/EditNameOpp'
@@ -18,6 +18,7 @@ import Contact from '@/components/Layout/Contact'
 import Dogs from '@/components/Dogs/Dogs'
 import Cats from '@/components/Cats/Cats'
 import Restricted from '@/components/Auth/Restricted'
+import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router)
 
@@ -167,6 +168,15 @@ const router = new Router({
       component: Restricted,
       meta: {
         title: 'Adopty | Restricted'
+      }
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+      meta: {
+        requiresAuth: true,
+        title: 'Adopty | Dashboard'
       }
     }
   ]

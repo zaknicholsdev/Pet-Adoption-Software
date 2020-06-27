@@ -1,12 +1,12 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <router-link to="/" class="navbar-brand color">
-          <span>
-            <img src="../../assets/logo.png" class="img-fluid" height="50" width="50" />
-            <span>Adopty</span>
-          </span>
-        </router-link>
+      <router-link to="/" class="navbar-brand color">
+        <span>
+          <img src="../../assets/logo.png" class="img-fluid" height="50" width="50" />
+          <span>Adopty</span>
+        </span>
+      </router-link>
 
       <button
         class="navbar-toggler"
@@ -51,6 +51,11 @@
           <li class="nav-item">
             <router-link to="/donate" class="nav-link">
               <i class="fas fa-heart mr-1"></i>Donate
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link  v-if="isLoggedIn" to="/dashboard" class="nav-link">
+              <i class="fas fa-chart-line mr-1"></i>Dashboard
             </router-link>
           </li>
           <li class="nav-item">
@@ -125,25 +130,5 @@ export default {
 }
 .pointer {
   cursor: pointer;
-}
-.outer {
-  display: table;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
-.middle {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.inner {
-  margin-left: auto;
-  margin-right: auto;
-  width: 400px;
-  /*whatever width you want*/
 }
 </style>

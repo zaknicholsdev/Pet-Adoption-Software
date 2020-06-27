@@ -70,13 +70,9 @@ export default {
         });
       });
   },
-  watch: {
-    $route: "fetchData"
-  },
   created() {
     if (firebase.auth().currentUser) {
       this.isLoggedIn = true;
-      this.currentUser = firebase.auth().currentUser.email;
     }
   },
   methods: {
