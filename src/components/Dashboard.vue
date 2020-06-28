@@ -1,8 +1,7 @@
 <template>
   <div id="animals">
     <h1
-      class="text-center p-3 container-fluid header-text mb-0"
-      style="background-color: #e6f6fd;"
+      class="text-center p-3 container-fluid header-text mb-0 bg-color"
     >DASHBOARD</h1>
 
     <div class="p-text mt-2 container">
@@ -25,11 +24,12 @@
               <li>
                 <strong>
                   <div class="p-1">
-                    {{cat.name}} -
+                    {{cat.name}}
                     <router-link
                       class="ml-1 pet-link"
                       v-bind:to="{name: 'view-cat', params: {catId: cat.catId}}"
                     >
+                    <br />
                       View
                       <i class="fas fa-search ml-1"></i>
                     </router-link>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="col-6">
-          <div class="my-center">
+          <div>
             <router-link to="/new-dog" class="pet-link" v-if="isLoggedIn">
               Add Dog
               <i class="fas fa-plus ml-1"></i>
@@ -54,11 +54,12 @@
               <li>
                 <strong>
                   <div class="p-1">
-                    {{dog.name}} -
+                    {{dog.name}}
                     <router-link
                       class="ml-1 pet-link"
                       v-bind:to="{name: 'view-dog', params: {dogId: dog.dogId}}"
                     >
+                    <br />
                       View
                       <i class="fas fa-search ml-1"></i>
                     </router-link>
@@ -151,52 +152,17 @@ export default {
 
 <style scoped>
 ul {
-  list-style: none;
-}
-.border {
-  height: 100%;
-  width: 100%;
-}
-@media only screen and (min-width: 600px) {
-  .p-text {
-    margin: 0 auto;
-    max-width: 600px;
-  }
-}
-.card-img-top {
-  width: 500px;
-  height: 300px;
-  object-fit: cover;
-}
-
-.other-btn-color {
-  background-color: #054864;
-  color: white;
-}
-.rounded {
-  border-radius: 30px !important;
-}
-.card-img-top {
-  border-top-left-radius: 30px !important;
-  border-top-right-radius: 30px !important;
-}
-
-ul {
   padding-left: 0px;
   margin-bottom: 0px;
+  list-style: none;
 }
 
 li {
-  border-bottom: 1px solid lightgray;
   border-top: 1px solid lightgray;
 }
 
 .pet-link {
   text-decoration: none;
-  color: #054864;
-}
-
-.my-center {
-  justify-content: center;
+  color: var(--primary-btn-color);
 }
 </style>

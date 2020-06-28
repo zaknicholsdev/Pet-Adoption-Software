@@ -27,7 +27,7 @@
             <strong>Adoption Fee:</strong>
             {{adoptionFee}}
           </li>
-          <p class="of">
+          <p class="desc-wrap">
             <strong>Description:</strong>
             {{description}}
           </p>
@@ -47,7 +47,7 @@
           <router-link
             v-if="isLoggedIn"
             to="/Dashboard"
-            class="btn btn-secondary m-1 other-btn-color"
+            class="btn m-1 primary-btn-color text-white"
           >Dashboard</router-link>
         </div>
       </div>
@@ -136,7 +136,9 @@ export default {
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
             doc.ref.delete();
-            this.$router.push("/dogs");
+            setTimeout(() => {
+              this.$router.push("/dogs");
+            }, 1000);
           });
         });
     }
@@ -153,27 +155,8 @@ li {
   border-bottom: 1px solid lightgray;
 }
 
-.max {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.of {
+.desc-wrap {
   word-wrap: break-word;
-}
-
-.rounded {
-  border-radius: 30px !important;
-}
-
-.card-img-top {
-  border-top-left-radius: 30px !important;
-  border-top-right-radius: 30px !important;
-}
-
-.other-btn-color {
-  background-color: #054864;
-  color: white;
 }
 
 img {

@@ -29,10 +29,12 @@
                   </strong>
                 </li>
               </ul>
+              <div class="text-center">
               <router-link
                 class="btn other-btn-color m-3"
                 v-bind:to="{name: 'view-cat', params: {catId: cat.catId}}"
               >View Cat</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -104,7 +106,6 @@ ul {
   border-top-left-radius: 30px !important;
   border-top-right-radius: 30px !important;
 }
-
 img {
   width: 100%;
   padding-bottom: 100%;

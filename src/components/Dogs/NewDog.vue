@@ -53,7 +53,7 @@
           placeholder="Enter Image URL"
         />
       </div>
-      <button type="submit" class="btn other-btn-color">Submit</button>
+      <button type="submit" class="btn primary-btn-color text-white mr-2">Submit</button>
       <router-link to="/dogs" class="btn btn-secondary">Cancel</router-link>
     </form>
     <div>
@@ -61,21 +61,20 @@
       <input type="file" @change="previewImage" accept="image/*" />
     </div>
     <div>
-      <p>
-        Progress: {{uploadValue.toFixed()+"%"}}
-        <br />
-        <progress id="progress" :value="uploadValue" max="100"></progress>
-      </p>
+      <p>Progress: {{uploadValue.toFixed()+"%"}}</p>
+      <progress id="progress" :value="uploadValue" max="100"></progress>
     </div>
+    <br />
     <div v-if="imageData!=null">
-      <img class="preview img-fluid" :src="picture" />
-      <button class="btn other-btn-color my-2" @click="onUpload">Upload</button>
+      <button class="btn primary-btn-color text-white mb-2" @click="onUpload">Upload</button>
+      <br />
+      <img class="img-fluid" :src="picture" />
     </div>
   </div>
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from "firebase";
 import { uuid } from "vue-uuid";
 
 export default {
@@ -83,9 +82,9 @@ export default {
   data() {
     return {
       dogId: uuid.v4(),
-      name: null,
       age: null,
       description: null,
+      name: null,
       imageUrl: null,
       breed: null,
       isNeuteredOrSpayed: "No",
@@ -105,8 +104,9 @@ export default {
     onUpload() {
       this.picture = null;
       this.imageUrl = null;
-      const storageRef = firebase.storage()
-        .ref(`${this.imageData.name}`)
+      const storageRef = firebase
+        .storage()
+        .ref(`${this.imageData.name}${Math.random()}`)
         .put(this.imageData);
       storageRef.on(
         `state_changed`,
@@ -128,7 +128,9 @@ export default {
       );
     },
     saveDog() {
-      firebase.firestore().collection("dogs")
+      firebase
+        .firestore()
+        .collection("dogs")
         .add({
           dogId: this.dogId,
           name: this.name,
@@ -149,8 +151,9 @@ export default {
 </script>
 
 <style scoped>
-.other-btn-color {
-  background-color: #054864;
-  color: white;
+img {
+  max-width: 400px;
+  display: block;
+  margin: auto;
 }
 </style>

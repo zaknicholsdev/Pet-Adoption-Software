@@ -3,23 +3,36 @@
     <header class="hero-image pt-5">
       <div>
         <div class="text-center">
-            <h2 class="text-uppercase text-white font-weight-bold">
-              Changing Animals
-              <br />Lives For Decades
-            </h2>
+          <h2 class="text-uppercase text-white font-weight-bold">
+            Changing Animals
+            <br />Lives For Decades
+          </h2>
         </div>
       </div>
     </header>
 
     <div class="text-center container pb-3">
-      <h5 class="mr-2 mb-0 ml-2"><strong>DONATE OR VIEW OUR CAPITAL CAMPAIGN FUNDRAISER.</strong></h5>
-      <br />
-      <div class="mb-2">
-        <router-link to="/donate" class="btn px-5 other-btn-color text-white py-3 my-1 mr-2 round s">Donate</router-link>
+      <h5 class="mr-2 mb-0 ml-2">
+        <strong>VIEW OUR ADOPTABLE PETS OR GIVE A DONATION.</strong>
+      </h5>
+      <div class="my-2">
         <router-link
-          class="btn px-2 py-3 my-1 round btn-secondary text-white s"
-          to="/capital-campaign"
-        >Capital Campaign</router-link>
+          class="btn btn-round home-btn px-2 py-3 my-1 round secondary-btn-color btn-shadow text-white"
+          to="/dogs"
+        ><i class="fas fa-dog"></i> Dogs
+        </router-link>
+        <br />
+        <router-link
+          class="btn home-btn btn-round px-2 py-3 my-1 round secondary-btn-color btn-shadow text-white"
+          to="/cats"
+        ><i class="fas fa-cat"></i> Cats
+        </router-link>
+        <br />
+        <router-link
+          to="/donate"
+          class="btn home-btn btn-round px-5 primary-btn-color btn-shadow text-white py-3 my-1 round"
+        ><i class="fas fa-heart"></i> Donate</router-link>
+        <br />
       </div>
     </div>
 
@@ -90,32 +103,12 @@ export default {
 </script>
 
 <style>
-.s {
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.25);
-}
-
-.bg-color {
-  background-color: #e6f6fd;
+.home-btn {
+  width: 200px;
 }
 
 .i-color {
   color: #054864;
-}
-
-.other-btn-color {
-  background-color: #054864;
-}
-
-.other-btn-color:hover {
-  background-color: #032c3d;
-}
-
-.main-btn-color {
-  background-color: #7e7e7e;
-}
-
-.main-btn-color:hover {
-  background-color: #7e7e7e;
 }
 
 .hero-image {
@@ -132,9 +125,5 @@ export default {
   background-size: cover;
   position: relative;
   clip-path: polygon(100% 0%, 100% 70%, 50% 90%, 50% 90%, 0 70%, 0 0);
-}
-
-.round {
-  border-radius: 10px;
 }
 </style>

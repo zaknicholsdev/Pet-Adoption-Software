@@ -14,7 +14,7 @@
             >None of this is possible without you. Thank you for your support. If you'd like to donate click the button below.</p>
             <i class="fas fa-2x fa-chevron-down text-white mb-2"></i>
             <div>
-              <button class="btn btn-primary">Donate</button>
+              <button class="btn btn-round primary-btn-color donate-btn text-white px-5 py-3">Donate</button>
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@
     </header>
 
     <!-- Donate Section -->
-    <section class="page-section py-5 text-center" id="donate">
+    <section class="py-5 text-center text-width" id="donate">
       <p class="container">
         Your generosity supports hundreds of animals in need. It helps pay for treatment when they
         are sick and finds them loving homes.
@@ -39,7 +39,9 @@ export default {
 </script>
 
 <style>
-
+.donate-btn {
+  width: 200px;
+}
 .hero {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
@@ -53,5 +55,11 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+
+.text-width {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 1rem;
 }
 </style>

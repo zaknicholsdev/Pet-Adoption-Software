@@ -1,0 +1,48 @@
+:root {
+    --main-bg-color: #e6f6fd;
+    --secondary-bg-color: white;
+    --main-font: "Montserrat", sans-serif;
+    --primary-btn-color: #054864;
+    --primary-btn-hover-color: #032c3d;
+    --secondary-btn-color: #6c757d;
+    --secondary-btn-hover-color: #5a6268;
+    --btn-shadow: 0px 8px 15px rgba(0, 0, 0, 0.25);
+    --round-btn: 10px;
+}
+
+body {
+  font-family: var(--main-font);
+  overflow-x: hidden;
+}
+
+.bg-color {
+    background-color: var(--main-bg-color);
+}
+
+.secondary-bg-color {
+    background-color: var(--secondary-bg-color);
+}
+
+.primary-btn-color {
+    background-color: var(--primary-btn-color);
+}
+
+.primary-btn-color:hover {
+    background-color: var(--primary-btn-hover-color);
+}
+
+.secondary-btn-color {
+    background-color: var(--secondary-btn-color);
+}
+
+.secondary-btn-color:hover {
+    background-color: var(--secondary-btn-hover-color)
+}
+
+.btn-shadow {
+    box-shadow: var(--btn-shadow);
+}
+
+.btn-round {
+    border-radius: var(--round-btn)
+}

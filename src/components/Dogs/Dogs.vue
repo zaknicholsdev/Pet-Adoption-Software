@@ -20,7 +20,10 @@
         <div v-for="dog in dogs" v-bind:key="dog.id" class="col-xs-12 col-md-4 mb-5">
           <div class="card border mt-3 shadow bg-white rounded">
             <div class="caption">
-              <img v-bind:style="{ backgroundImage: 'url(' + dog.imageUrl + ')' }" class="card-img-top" />
+              <img
+                v-bind:style="{ backgroundImage: 'url(' + dog.imageUrl + ')' }"
+                class="card-img-top"
+              />
               <br />
               <ul class="p-2 text-center">
                 <li>
@@ -29,10 +32,12 @@
                   </strong>
                 </li>
               </ul>
-              <router-link
-                class="btn other-btn-color m-3"
-                v-bind:to="{name: 'view-dog', params: {dogId: dog.dogId}}"
-              >View Dog</router-link>
+              <div class="text-center">
+                <router-link
+                  class="btn primary-btn-color text-white"
+                  v-bind:to="{name: 'view-dog', params: {dogId: dog.dogId}}"
+                >View Dog</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -50,7 +55,7 @@ export default {
       dogs: [],
       isLoggedIn: false,
       loading: true,
-      imageUrl: ''
+      imageUrl: ""
     };
   },
   created() {
@@ -58,7 +63,9 @@ export default {
       this.isLoggedIn = true;
     }
 
-    firebase.firestore().collection("dogs")
+    firebase
+      .firestore()
+      .collection("dogs")
       .orderBy("name")
       .get()
       .then(querySnapshot => {
@@ -91,12 +98,6 @@ ul {
     max-width: 600px;
   }
 }
-
-.other-btn-color {
-  background-color: #054864;
-  color: white;
-}
-
 .rounded {
   border-radius: 30px !important;
 }
@@ -104,7 +105,6 @@ ul {
   border-top-left-radius: 30px !important;
   border-top-right-radius: 30px !important;
 }
-
 img {
   width: 100%;
   padding-bottom: 100%;

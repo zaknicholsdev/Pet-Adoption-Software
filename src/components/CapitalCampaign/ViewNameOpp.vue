@@ -23,7 +23,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="text-center">
         <router-link to="/capital-campaign" class="btn btn-secondary m-1">Back</router-link>
         <button v-if="isLoggedIn" @click="showModal" class="btn btn-danger m-1">Delete</button>
         <router-link

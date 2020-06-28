@@ -21,7 +21,7 @@
           <option>No</option>
         </select>
       </div>
-      <button type="submit" class="btn other-btn-color text-white">Submit</button>
+      <button type="submit" class="btn primary-btn-color text-white">Submit</button>
       <router-link to="/capital-campaign" class="btn btn-secondary">Cancel</router-link>
     </form>
   </div>
@@ -60,7 +60,5 @@ export default {
 </script>
 
 <style scoped>
-.other-btn-color {
-  background-color: #054864;
-}
+
 </style>

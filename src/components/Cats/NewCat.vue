@@ -61,7 +61,7 @@
           placeholder="Enter Image URL"
         />
       </div>
-      <button type="submit" class="btn other-btn-color">Submit</button>
+      <button type="submit" class="btn primary-btn-color text-white mr-2">Submit</button>
       <router-link to="/cats" class="btn btn-secondary">Cancel</router-link>
     </form>
     <div>
@@ -74,8 +74,9 @@
     </div>
     <br />
     <div v-if="imageData!=null">
-      <img class="preview img-fluid" :src="picture" />
-      <button class="btn other-btn-color my-2" @click="onUpload">Upload</button>
+      <button class="btn primary-btn-color text-white mb-2" @click="onUpload">Upload</button>
+      <br />
+      <img class="img-fluid" :src="picture" />
     </div>
   </div>
 </template>
@@ -89,6 +90,7 @@ export default {
   data() {
     return {
       catId: uuid.v4(),
+      date: new Date(),
       name: null,
       age: null,
       description: null,
@@ -111,8 +113,9 @@ export default {
     onUpload() {
       this.picture = null;
       this.imageUrl = null;
-      const storageRef = firebase.storage()
-        .ref(`${this.imageData.name}`)
+      const storageRef = firebase
+        .storage()
+        .ref(`${this.imageData.name}${Math.random()}`)
         .put(this.imageData);
       storageRef.on(
         `state_changed`,
@@ -133,7 +136,9 @@ export default {
       );
     },
     saveCat() {
-      firebase.firestore().collection("cats")
+      firebase
+        .firestore()
+        .collection("cats")
         .add({
           catId: this.catId,
           name: this.name,
@@ -147,7 +152,7 @@ export default {
         })
         .then(() => {
           this.$router.push("/cats");
-        }) 
+        })
         .catch(error => console.log(error));
     }
   }
@@ -155,17 +160,9 @@ export default {
 </script>
 
 <style scoped>
-.other-btn-color {
-  background-color: #054864;
-  color: white;
-}
-
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+img {
+  max-width: 400px;
+  display: block;
+  margin: auto;
 }
 </style>

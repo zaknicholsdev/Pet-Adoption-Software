@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+    <nav class="navbar navbar-expand-xl navbar-light secondary-bg-color">
       <router-link to="/" class="navbar-brand color">
         <span>
           <img src="../../assets/logo.png" class="img-fluid" height="50" width="50" />
@@ -111,23 +111,6 @@ export default {
 </script>
 
 <style scoped>
-.bg {
-  background-color: black;
-}
-
-.pb {
-  margin-bottom: 30px;
-}
-
-.navbar-item {
-  color: #4a4a4a !important;
-}
-.admin-links {
-  margin: 10px;
-}
-.bg-light {
-  background-color: white !important;
-}
 .pointer {
   cursor: pointer;
 }

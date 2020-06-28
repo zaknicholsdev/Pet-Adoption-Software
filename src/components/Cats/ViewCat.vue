@@ -31,7 +31,7 @@
             <strong>Adoption Fee:</strong>
             ${{adoptionFee}}
           </li>
-          <p class="of">
+          <p class="para-wrap">
             <strong>Description:</strong>
             {{description}}
           </p>
@@ -51,7 +51,7 @@
           <router-link
             v-if="isLoggedIn"
             to="/Dashboard"
-            class="btn btn-secondary m-1 other-btn-color"
+            class="btn m-1 primary-btn-color text-white"
           >Dashboard</router-link>
         </div>
       </div>
@@ -143,7 +143,9 @@ export default {
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
             doc.ref.delete();
-            this.$router.push("/cats");
+            setTimeout(() => {
+              this.$router.push("/cats");
+            }, 1500);
           });
         });
     }
@@ -160,23 +162,8 @@ li {
   border-bottom: 1px solid lightgray;
 }
 
-.of {
+.para-wrap {
   word-wrap: break-word;
-}
-
-.max {
-  max-height: 400px;
-  margin: 0 auto;
-}
-
-.padding-0 {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.other-btn-color {
-  background-color: #054864;
-  color: white;
 }
 
 img {

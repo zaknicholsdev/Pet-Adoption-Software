@@ -6,13 +6,13 @@
     >CAPITAL CAMPAIGN</h1>
     <div class="container">
       <div class="p-text mt-2">
-        <p>Each year, there are more animals in need of homes than there are homes available to adopt them. As demand for our services continue to grow, the Greater Hillsdale Humane Society is pleased to offer naming opportunities as a way to help homeless pets in our community.</p>
+        <p>Each year, there are more animals in need of homes than there are homes available to adopt them. As demand for our services continue to grow, the Humane Society is pleased to offer naming opportunities as a way to help homeless pets in our community.</p>
         <p>
           You can choose to feature your name or the name of a beloved person or pet on any of the available locations.
           Your generosity will provide shelter, quality medical care, and homes for many animals that may never have had a chance without your help.
         </p>
 
-        <p>To discuss naming opportunities, please contact Julia, President of GHHS, at 555.555.5555 or email. You may also stop in person.</p>
+        <p>To discuss naming opportunities, please contact Jane Doe, President of Humane Society, at 555.123.4567 or email. You may also stop in person.</p>
         <br />
       </div>
       <router-link
@@ -36,10 +36,13 @@
             <td>{{namingOpp.name}}</td>
             <td>${{namingOpp.price}}</td>
             <router-link
-              class="btn mt-1"
+              class="btn mt-1 edit-btn"
               v-if="isLoggedIn"
               v-bind:to="{name: 'view-name-opp', params: {capitalCampaignId: namingOpp.capitalCampaignId}}"
-            >View</router-link>
+            >
+              View
+              <i class="fas fa-search ml-1"></i>
+            </router-link>
           </tr>
         </tbody>
       </table>
@@ -60,7 +63,9 @@ export default {
     };
   },
   created() {
-    firebase.firestore().collection("capitalCampaign")
+    firebase
+      .firestore()
+      .collection("capitalCampaign")
       .orderBy("capitalCampaignId")
       .get()
       .then(querySnapshot => {
@@ -88,7 +93,9 @@ export default {
 li {
   list-style: none;
 }
-
+.edit-btn {
+  color: var(--primary-btn-color);
+}
 .line-through {
   text-decoration: line-through;
 }

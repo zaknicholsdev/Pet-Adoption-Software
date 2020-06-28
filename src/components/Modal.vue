@@ -1,5 +1,5 @@
 <template>
-  <div class="my-modal pt-5" v-show="value">
+  <div class="delete-modal pt-5" v-show="value">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header justify-content-center">
@@ -43,7 +43,7 @@ export default {
 
 
 <style scoped>
-.my-modal {
+.delete-modal {
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;

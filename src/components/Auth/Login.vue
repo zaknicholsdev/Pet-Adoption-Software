@@ -27,7 +27,7 @@
           v-model="password"
         >
       </div>
-      <button v-on:click="login" class="btn other-btn-color">Submit</button>
+      <button v-on:click="login" class="btn primary-btn-color text-white mr-1">Submit</button>
       <router-link to="/" class="btn btn-secondary text-white">Back Home</router-link>
     </form>
   </div>
@@ -69,23 +69,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.other-btn-color {
-  background-color: #054864;
-  color: white;
+form {
+  max-width: 600px;
+  margin: auto;
 }
 </style>

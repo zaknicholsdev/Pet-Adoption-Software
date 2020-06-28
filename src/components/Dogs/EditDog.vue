@@ -47,7 +47,7 @@
         <label>Image URL</label>
         <input disabled type="text" class="form-control" v-model="imageUrl" placeholder="Enter Image URL" />
       </div>
-      <button type="submit" class="btn other-btn-color">Submit</button>
+      <button type="submit" class="btn primary-btn-color text-white mr-2">Submit</button>
       <router-link to="/dogs" class="btn btn-secondary">Cancel</router-link>
     </form>
   </div>
@@ -137,8 +137,5 @@ export default {
 </script>
 
 <style scoped>
-.other-btn-color {
-  background-color: #054864;
-  color: white;
-}
+
 </style>
